@@ -4,7 +4,7 @@ const port = 8000
 const cors = require("cors")
 const connections = require("./connections")
 const routes = require("./routes/routes")
-const controllers = require("./controllers/controllers")
+
 
 // Middleware
 app.use(express.json())
