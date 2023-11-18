@@ -10,6 +10,19 @@ const getAllProperties = async (req, res) => {
   }
 };
 
+const getPropertyById = async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+    if (!property) {
+      return res.status(404).send({ error: "Property not found." });
+    }
+    res.status(200).send(property);
+  } catch (error) {
+    console.error("Error fetching property by ID:", error);
+    res.status(500).send({ error: "Failed to retrieve the property." });
+  }
+};
+
 const createProperty = async (req, res) => {
   try {
     const newProperty = await Property.create(req.body);
@@ -54,4 +67,5 @@ module.exports = {
   createProperty,
   updateProperty,
   deleteProperty,
+  getPropertyById,
 };

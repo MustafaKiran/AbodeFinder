@@ -9,7 +9,7 @@ function PropertyDetails() {
     
    async function getProperty() {
     try {
-      const res = await axios.get(`http://localhost:8000/property/${id}`);
+      const res = await axios.get(`http://localhost:8000/${id}`);
       setDetails(res.data);
       
     } catch (error) {
