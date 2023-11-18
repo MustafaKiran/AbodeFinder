@@ -8,6 +8,7 @@ function NavBar() {
     return ( 
         <div>
             <Link to="/" className="link">Home</Link>
+            <Link to="/new-property-form" className="link">Add a New Ad</Link>
         </div>
 
      );

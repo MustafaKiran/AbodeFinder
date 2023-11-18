@@ -6,7 +6,8 @@ import NewPropertyForm from "./components/newPropertyForm";
 import axios from "axios";
 import AgencyGrid from "./components/agencyGrid";
 import EditProperty from "./components/editPropertyForm";
-
+import NavBar from "./components/navBar";
+import PropertyDetails from "./components/propertyDetails";
 function App() {
   const [properties, setProperties] = useState([]);
 
@@ -44,27 +45,37 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/properties"
-          element={
-            <PropertyGrid
-              properties={properties}
-              getAllProperties={getAllProperties}
-            />
-          }
+          path="/property/:id"
+          element={<PropertyDetails />}
+          
         />
         <Route
           path="/new-property-form"
-          element={<NewPropertyForm getAllProperties={getAllProperties} />}
+          element={
+            <>
+            <NavBar/>
+            <NewPropertyForm getAllProperties={getAllProperties} />
+            </>
+          
+        }
         />
-        {/* <Route
-          path="/edit-property"
-          element={<EditProperty getAllProperties={getAllProperties}  />}
-        /> */}
+        <Route
+          path="/"
+          element={
+            <>
+            <NavBar/>
+            <PropertyGrid getAllProperties={getAllProperties} properties={properties} />
+            </>
+          
+        }
+        />
+        
 
         <Route
           path="/agency-dashboard"
           element={
             <>
+            <NavBar/>
             <AgencyGrid
               getAllProperties={getAllProperties}
               properties={properties}

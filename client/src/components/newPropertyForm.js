@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const NewPropertyForm = ({ getAllProperties }) => {
+
+  const navigate = useNavigate();
+
   const [newProperty, setNewProperty] = useState({
     title: "",
     rentAmount: "",
@@ -20,6 +24,7 @@ const NewPropertyForm = ({ getAllProperties }) => {
     try {
       await axios.post("http://localhost:8000/create", newProperty);
       await getAllProperties();
+      navigate("/agency-dashboard")
     } catch (error) {
       console.log("Error adding new property", error);
     }
