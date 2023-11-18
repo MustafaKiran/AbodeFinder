@@ -38,7 +38,7 @@ const updateProperty = async (req, res) => {
 
 const deleteProperty = async (req, res) => {
   try {
-    const deletedProperty = await Property.findByIdAndRemove(req.params.id);
+    const deletedProperty = await Property.findByIdAndDelete(req.params.id);
     if (!deletedProperty) {
       return res.status(404).send({ error: "Property not found" });
     }

@@ -1,9 +1,7 @@
-import useState from "react";
-import axios from "axios"
+import React, { useState } from "react";
+import axios from "axios";
 
-
-
-const NewPropertyForm = ({ properties, getAllProperties }) => {
+const NewPropertyForm = ({ getAllProperties }) => {
   const [newProperty, setNewProperty] = useState({
     title: "",
     rentAmount: "",
@@ -66,11 +64,12 @@ const NewPropertyForm = ({ properties, getAllProperties }) => {
         <label>Vacant from:</label>
         <input
           type="date"
-          value={newProperty.availableDate}
+          value={newProperty.availableDate.split("T")[0]}
           onChange={handleInputChange}
           name="availableDate"
         />
       </form>
+      <button onClick={addNewProperty}>Create</button>
     </div>
   );
 };
