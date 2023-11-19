@@ -12,6 +12,6 @@ router.get("/", getAllProperties);
 router.post("/create", createProperty);
 router.put("/:id", updateProperty);
 router.delete("/:id", deleteProperty);
-router.get("/:id", getPropertyById)
+router.get("/:id", getPropertyById);
 
 module.exports = router;

@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  userName: {
+const agentSchema = new mongoose.Schema({
+  companyName: {
     type: String,
     required: true,
     unique: true,
+  },
+  contactPerson: {
+    type: String,
+    required: true,
   },
   email: {
     type: String,
@@ -19,13 +23,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  agencyDescription: {
+    type: String,
+    required: true,
+  },
   type: {
     type: String,
     required: true,
-    default: "user"
+    default: "agent"
   }
+
 });
 
-const User = mongoose.model("User", userSchema);
+const Agent = mongoose.model("Agent", agentSchema);
 
-module.exports = User;
+module.exports = Agent;
