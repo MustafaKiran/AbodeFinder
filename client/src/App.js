@@ -8,10 +8,12 @@ import AgencyGrid from "./components/agencyGrid";
 import EditProperty from "./components/editPropertyForm";
 import NavBar from "./components/navBar";
 import PropertyDetails from "./components/propertyDetails";
+import UserLogin from "./components/auth/userLogin";
+import AgentLogin from "./components/auth/agentLogin";
+import UserRegister from "./components/auth/userRegister";
+import AgentRegister from "./components/auth/agentRegister";
 function App() {
   const [properties, setProperties] = useState([]);
-
-  
 
   async function getAllProperties() {
     try {
@@ -39,50 +41,45 @@ function App() {
     }
   }
 
-  
-
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route
-          path="/property/:id"
-          element={<PropertyDetails />}
-          
-        />
+        <Route path="/user-login" element={<UserLogin />} />
+        <Route path="/agent-login" element={<AgentLogin />} />
+        <Route path="/user-register" element={<UserRegister />} />
+        <Route path="/agent-register" element={<AgentRegister />} />
+        <Route path="/property/:id" element={<PropertyDetails />} />
         <Route
           path="/new-property-form"
           element={
             <>
-            <NavBar/>
-            <NewPropertyForm getAllProperties={getAllProperties} />
+              <NewPropertyForm getAllProperties={getAllProperties} />
             </>
-          
-        }
+          }
         />
         <Route
           path="/"
           element={
             <>
-            <NavBar/>
-            <PropertyGrid getAllProperties={getAllProperties} properties={properties} />
+              <PropertyGrid
+                getAllProperties={getAllProperties}
+                properties={properties}
+              />
             </>
-          
-        }
+          }
         />
-        
 
         <Route
           path="/agency-dashboard"
           element={
             <>
-            <NavBar/>
-            <AgencyGrid
-              getAllProperties={getAllProperties}
-              properties={properties}
-              deleteProperty={deleteProperty}
-            />
+              <AgencyGrid
+                getAllProperties={getAllProperties}
+                properties={properties}
+                deleteProperty={deleteProperty}
+              />
             </>
-            
           }
         />
       </Routes>

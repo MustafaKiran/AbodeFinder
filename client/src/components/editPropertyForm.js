@@ -17,13 +17,25 @@ function EditProperty({  property, getAllProperties, setEditing }) {
 
   async function updateProperty() {
     try {
-      await axios.put(`http://localhost:8000/${property._id}`, {
-        title: editedProperty.title,
-        rentAmount: editedProperty.rentAmount,
-        livingSpace: editedProperty.livingSpace,
-        bedrooms: editedProperty.bedrooms,
-        availableDate: editedProperty.availableDate.split("T")[0],
-      });
+       // Validation for empty or blank space entry
+    const trimmedTitle = editedProperty.title.trim();
+    const trimmedRentAmount = editedProperty.rentAmount.toString().trim();
+    const trimmedLivingSpace = editedProperty.livingSpace.toString().trim();
+    const trimmedBedrooms = editedProperty.bedrooms.toString().trim();
+    const trimmedAvailableDate = editedProperty.availableDate.split("T")[0].trim();
+
+    if (!trimmedTitle || !trimmedRentAmount || !trimmedLivingSpace || !trimmedBedrooms || !trimmedAvailableDate) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    await axios.put(`http://localhost:8000/${property._id}`, {
+      title: trimmedTitle,
+      rentAmount: trimmedRentAmount,
+      livingSpace: trimmedLivingSpace,
+      bedrooms: trimmedBedrooms,
+      availableDate: trimmedAvailableDate,
+    });
       setEditedProperty({
         
         title: "",

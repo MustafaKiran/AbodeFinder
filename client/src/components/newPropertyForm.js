@@ -21,6 +21,12 @@ const NewPropertyForm = ({ getAllProperties }) => {
 
   async function addNewProperty(e) {
     e.preventDefault();
+    for (const key in newProperty) {
+      if (newProperty[key].trim() === "") {
+        alert("Please fill in all required fields.");
+        return;
+      }
+    }
     try {
       await axios.post("http://localhost:8000/create", newProperty);
       await getAllProperties();

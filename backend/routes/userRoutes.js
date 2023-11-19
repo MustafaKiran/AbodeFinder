@@ -8,9 +8,9 @@ const {
   loginAgent,
 } = require("../controllers/userControllers");
 
-router.post("/register-user", registerUser);
-router.post("/register-agent", registerAgent);
-router.post("/login-user", loginUser);
-router.post("/login-agent", loginAgent);
+userRouter.post("/register-user", registerUser);
+userRouter.post("/register-agent", registerAgent);
+userRouter.post("/login-user", loginUser);
+userRouter.post("/login-agent", loginAgent);
 
 module.exports = userRouter;
