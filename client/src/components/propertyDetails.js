@@ -8,16 +8,17 @@ function PropertyDetails() {
   const { id } = useParams();
 
   //    Render the details of a single property
-  async function getProperty() {
-    try {
-      const res = await axios.get(`http://localhost:8000/${id}`);
-      setDetails(res.data);
-    } catch (error) {
-      console.log("Error fetching properties:", error);
-    }
-  }
+  
 
   useEffect(() => {
+    async function getProperty() {
+      try {
+        const res = await axios.get(`http://localhost:8000/${id}`);
+        setDetails(res.data);
+      } catch (error) {
+        console.log("Error fetching properties:", error);
+      }
+    }
     getProperty();
   }, []);
 

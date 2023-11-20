@@ -14,7 +14,7 @@ function AgentLogin() {
             if (res.status === 200) {
                 localStorage.setItem("token", res.data.token);
                 
-                navigate("/"); 
+                navigate("/agency-dashboard"); 
             }
         } catch (err) {
             if (err.response && err.response.status === 401) {
@@ -34,6 +34,7 @@ function AgentLogin() {
                 <label>Password</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
                 <button type="submit">Log in</button>
+
             </form>
         </div>
     );

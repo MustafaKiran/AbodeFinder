@@ -69,7 +69,7 @@ function UserRegister() {
           name="phoneNumber"
         />
 
-        {/* Disable the button when loading */}
+        
         <button type="submit" disabled={isLoading}>
           Register
         </button>

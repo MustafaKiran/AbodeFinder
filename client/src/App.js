@@ -19,7 +19,6 @@ function App() {
     try {
       const res = await axios.get("http://localhost:8000");
       setProperties(res.data);
-      // console.log(properties);
     } catch (error) {
       console.log("Error fetching properties:", error);
     }
@@ -34,7 +33,7 @@ function App() {
     if (alertDeleteProperty) {
       try {
         await axios.delete(`http://localhost:8000/${id}`);
-        await getAllProperties();
+        getAllProperties();
       } catch (error) {
         console.error("Error deleting the property", error);
       }

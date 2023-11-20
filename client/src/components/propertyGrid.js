@@ -1,5 +1,5 @@
 import PropertyCard from "./propertyCard";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const PropertyGrid = ({ properties, getAllProperties }) => {
   
