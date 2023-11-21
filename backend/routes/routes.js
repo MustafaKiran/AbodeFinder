@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const verifyToken = require("../middleware/authentication")
 const {
   getAllProperties,
   getPropertyById,
@@ -9,7 +10,7 @@ const {
 } = require("../controllers/controllers");
 
 router.get("/", getAllProperties);
-router.post("/create", createProperty);
+router.post("/create",verifyToken, createProperty);
 router.put("/:id", updateProperty);
 router.delete("/:id", deleteProperty);
 router.get("/:id", getPropertyById);

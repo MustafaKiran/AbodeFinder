@@ -83,7 +83,7 @@ function NavBar() {
         )) ||
         (token && isAgency && (
           <div>
-            <Link className="link">{decoded.companyName}</Link>
+            <Link to="/agency-dashboard" className="link">{decoded.companyName}</Link>
             <Link to="/new-property-form" className="link">
               Add a New Ad
             </Link>

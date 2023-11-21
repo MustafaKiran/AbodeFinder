@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 function AgentRegister() {
+  const navigate = useNavigate();
   const [newAgent, setNewAgent] = useState({
     companyName: "",
     contactPerson: "",
@@ -15,7 +16,7 @@ function AgentRegister() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setNewAgent({ ...newAgent, [e.target.name]: value });
+    setNewAgent({ ...newAgent, [e.target.name]: value.trim() });
   };
 
   async function addNewAgent(e) {
@@ -41,6 +42,7 @@ function AgentRegister() {
         "http://localhost:8000/register-agent",
         newAgent
       );
+        navigate("/agent-login")
       alert(res.data.msg);
     } catch (error) {
       console.log("Error adding new agent", error);

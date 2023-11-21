@@ -1,9 +1,11 @@
 const Property = require("../models/propertyModel");
-const User = require("../models/userModel");
 
 const getAllProperties = async (req, res) => {
   try {
-    const allProperties = await Property.find();
+    const allProperties = await Property.find().populate(
+      "owner",
+      "companyName"
+    );
     res.status(200).send(allProperties);
   } catch (error) {
     res.status(500).send({ error: "Failed to retrieve the properties." });
@@ -12,7 +14,11 @@ const getAllProperties = async (req, res) => {
 
 const getPropertyById = async (req, res) => {
   try {
-    const property = await Property.findById(req.params.id);
+    // populate the company name 
+    const property = await Property.findById(req.params.id).populate(
+      "owner",
+      "companyName"
+    );
     if (!property) {
       return res.status(404).send({ error: "Property not found." });
     }
@@ -25,8 +31,12 @@ const getPropertyById = async (req, res) => {
 
 const createProperty = async (req, res) => {
   try {
-    const newProperty = await Property.create(req.body);
-    res.status(201).send(newProperty);
+    // add owner to created properties
+    const owner = req.user.id;
+    const newProperty = { ...req.body, owner };
+
+    const createdProperty = await Property.create(newProperty);
+    res.status(201).send(createdProperty);
   } catch (error) {
     res.status(500).send({ error: "Failed to create the property." });
   }

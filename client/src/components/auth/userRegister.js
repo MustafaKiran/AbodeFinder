@@ -13,7 +13,7 @@ function UserRegister() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setNewUser({ ...newUser, [e.target.name]: value });
+    setNewUser({ ...newUser, [e.target.name]: value.trim() });
   };
 
   async function addNewUser(e) {

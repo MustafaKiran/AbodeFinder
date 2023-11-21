@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const NewPropertyForm = ({ getAllProperties }) => {
-
+let token = localStorage.getItem("token")
   const navigate = useNavigate();
 
   const [newProperty, setNewProperty] = useState({
@@ -16,7 +16,10 @@ const NewPropertyForm = ({ getAllProperties }) => {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setNewProperty({ ...newProperty, [e.target.name]: value });
+    setNewProperty({
+      ...newProperty,
+      [e.target.name]: value.trim(),
+    });
   };
 
   async function addNewProperty(e) {
@@ -28,8 +31,9 @@ const NewPropertyForm = ({ getAllProperties }) => {
       }
     }
     try {
-      await axios.post("http://localhost:8000/create", newProperty);
+      await axios.post("http://localhost:8000/create", newProperty, {headers:{Authorization:`Bearer ${token}`}} );
       await getAllProperties();
+      console.log(newProperty)
       navigate("/agency-dashboard")
     } catch (error) {
       console.log("Error adding new property", error);
@@ -75,7 +79,7 @@ const NewPropertyForm = ({ getAllProperties }) => {
         <label>Vacant from:</label>
         <input
           type="date"
-          value={newProperty.availableDate.split("T")[0]}
+          value={newProperty.availableDate}
           onChange={handleInputChange}
           name="availableDate"
         />

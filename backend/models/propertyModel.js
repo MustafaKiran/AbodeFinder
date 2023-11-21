@@ -21,6 +21,7 @@ const propertySchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: "Agent" },
 });
 
 const Property = mongoose.model("Property", propertySchema);

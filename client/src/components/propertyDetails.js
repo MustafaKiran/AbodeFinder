@@ -28,7 +28,7 @@ function PropertyDetails() {
       <h2>{details.rentAmount}</h2>
       <h2> {details.livingSpace} </h2>
       <h2>{details.bedrooms}</h2>
-      {/* <h2> {details.availableDate.split("T")[0]} </h2> */}
+      <h2>{details?.availableDate?.split('T')[0]}</h2>
     </div>
   );
 }

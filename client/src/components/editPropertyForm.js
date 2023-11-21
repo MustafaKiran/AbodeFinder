@@ -22,7 +22,7 @@ function EditProperty({  property, getAllProperties, setEditing }) {
     const trimmedRentAmount = editedProperty.rentAmount.toString().trim();
     const trimmedLivingSpace = editedProperty.livingSpace.toString().trim();
     const trimmedBedrooms = editedProperty.bedrooms.toString().trim();
-    const trimmedAvailableDate = editedProperty.availableDate.split("T")[0].trim();
+    const trimmedAvailableDate = editedProperty.availableDate.trim();
 
     if (!trimmedTitle || !trimmedRentAmount || !trimmedLivingSpace || !trimmedBedrooms || !trimmedAvailableDate) {
       alert("Please fill in all required fields.");
@@ -95,7 +95,7 @@ function EditProperty({  property, getAllProperties, setEditing }) {
         <label>Vacant from:</label>
         <input
           type="date"
-          value={editedProperty.availableDate.split("T")[0]}
+          value={editedProperty.availableDate}
           onChange={handleUpdate}
           name="availableDate"
         />
