@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from "react";
-import EditProperty from "./editPropertyForm";
+import React, { useState} from "react";
+
 import { Link} from "react-router-dom";
 
-const PropertyCard = ({ property, deleteProperty, getAllProperties }) => {
+const PropertyCard = ({ property, getAllProperties }) => {
   
   const [editing, setEditing] = useState(false);
   
-  const handleDelete = () => {
-    if (deleteProperty) {
-      deleteProperty(property._id);
-    }
-  };
-
-  const handleEdit = () => {
-    setEditing(true);
-  };
+  
 
   return (
     <div>
@@ -27,15 +19,8 @@ const PropertyCard = ({ property, deleteProperty, getAllProperties }) => {
         <h2>{property.owner.companyName}</h2>
         <Link to={`/property/${property._id}`}>View Details</Link>
       </div>
-      <button onClick={handleDelete}>Delete</button>
-      <button onClick={handleEdit}>Edit</button>
-      {editing && (
-        <EditProperty
-          property={property}
-          setEditing={setEditing}
-          getAllProperties={getAllProperties}
-        />
-      )}
+      
+      
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import PropertyCard from "./propertyCard";
+import AgencyCard from "./agencyCard";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 const AgencyGrid = ({ properties, getAllProperties, deleteProperty }) => {
@@ -25,7 +25,7 @@ const AgencyGrid = ({ properties, getAllProperties, deleteProperty }) => {
       {properties
         .filter((p) => ownerIds.includes(p._id))
         .map((property) => (
-          <PropertyCard
+          <AgencyCard
             key={property._id}
             property={property}
             getAllProperties={getAllProperties}

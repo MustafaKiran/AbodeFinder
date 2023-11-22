@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 function UserRegister() {
+  const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     userName: "",
     email: "",
@@ -18,19 +19,28 @@ function UserRegister() {
 
   async function addNewUser(e) {
     e.preventDefault();
-    
+
     // Basic form validation
-    if (!newUser.userName.trim() || !newUser.email.trim() || !newUser.password.trim()) {
-        alert("Please fill in all required fields.");
-        return;
-      }
+    if (
+      !newUser.userName.trim() ||
+      !newUser.email.trim() ||
+      !newUser.password.trim()
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
     try {
       setIsLoading(true);
 
-      let res = await axios.post("http://localhost:8000/register-user", newUser);
+      let res = await axios.post(
+        "http://localhost:8000/register-user",
+        newUser
+      );
+      navigate("/user-login")
       alert(res.data.msg);
     } catch (error) {
+      alert(error.response.data.msg)
       console.log("Error adding new user", error);
     } finally {
       setIsLoading(false);
@@ -69,7 +79,6 @@ function UserRegister() {
           name="phoneNumber"
         />
 
-        
         <button type="submit" disabled={isLoading}>
           Register
         </button>
@@ -79,4 +88,3 @@ function UserRegister() {
 }
 
 export default UserRegister;
-

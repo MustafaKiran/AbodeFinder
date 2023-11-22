@@ -22,10 +22,13 @@ function NavBar() {
   function handleLogout() {
     if (token) {
       localStorage.removeItem("token");
-      navigate("/");
-    } else {
+      navigate("/")
+      window.location.reload()
+    } else{
       return;
     }
+      
+    
   }
 
   if (decoded) {

@@ -45,6 +45,7 @@ function AgentRegister() {
         navigate("/agent-login")
       alert(res.data.msg);
     } catch (error) {
+      alert(error.response.data.msg)
       console.log("Error adding new agent", error);
     } finally {
       setIsLoading(false);

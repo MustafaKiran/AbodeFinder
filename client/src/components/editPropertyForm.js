@@ -1,15 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 
-function EditProperty({  property, getAllProperties, setEditing }) {
+function EditProperty({ property, getAllProperties, setEditing }) {
   const [editedProperty, setEditedProperty] = useState({
-    title: property.title ,
+    title: property.title,
     rentAmount: property.rentAmount,
     livingSpace: property.livingSpace,
-    bedrooms: property.bedrooms ,
+    bedrooms: property.bedrooms,
     availableDate: property.availableDate,
+    // photoURL: property.photoURL,
   });
-  console.log(property)
+  console.log(property);
   const handleUpdate = (e) => {
     const value = e.target.value;
     setEditedProperty({ ...editedProperty, [e.target.name]: value });
@@ -17,39 +18,44 @@ function EditProperty({  property, getAllProperties, setEditing }) {
 
   async function updateProperty() {
     try {
-       // Validation for empty or blank space entry
-    const trimmedTitle = editedProperty.title.trim();
-    const trimmedRentAmount = editedProperty.rentAmount.toString().trim();
-    const trimmedLivingSpace = editedProperty.livingSpace.toString().trim();
-    const trimmedBedrooms = editedProperty.bedrooms.toString().trim();
-    const trimmedAvailableDate = editedProperty.availableDate.trim();
+      // Validation for empty or blank space entry
+      const trimmedTitle = editedProperty.title.trim();
+      const trimmedRentAmount = editedProperty.rentAmount.toString().trim();
+      const trimmedLivingSpace = editedProperty.livingSpace.toString().trim();
+      const trimmedBedrooms = editedProperty.bedrooms.toString().trim();
+      const trimmedAvailableDate = editedProperty.availableDate.trim();
+      // const trimmedPhotoURL = editedProperty.photoURL.trim()    || !trimmedPhotoURL
+      if (
+        !trimmedTitle ||
+        !trimmedRentAmount ||
+        !trimmedLivingSpace ||
+        !trimmedBedrooms ||
+        !trimmedAvailableDate
+      ) {
+        alert("Please fill in all required fields.");
+        return;
+      }
 
-    if (!trimmedTitle || !trimmedRentAmount || !trimmedLivingSpace || !trimmedBedrooms || !trimmedAvailableDate) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    await axios.put(`http://localhost:8000/${property._id}`, {
-      title: trimmedTitle,
-      rentAmount: trimmedRentAmount,
-      livingSpace: trimmedLivingSpace,
-      bedrooms: trimmedBedrooms,
-      availableDate: trimmedAvailableDate,
-    });
+      await axios.put(`http://localhost:8000/${property._id}`, {
+        title: trimmedTitle,
+        rentAmount: trimmedRentAmount,
+        livingSpace: trimmedLivingSpace,
+        bedrooms: trimmedBedrooms,
+        availableDate: trimmedAvailableDate,
+        // photoURL:trimmedPhotoURL,
+      });
       setEditedProperty({
-        
         title: "",
         rentAmount: "",
         livingSpace: "",
         bedrooms: "",
         availableDate: "",
       });
-      
+
       setEditing(false);
-      if (typeof getAllProperties === 'function') {
-        getAllProperties(); 
+      if (typeof getAllProperties === "function") {
+        getAllProperties();
       }
-      
     } catch (error) {
       console.error("Error updating the property", error);
     }
@@ -99,6 +105,8 @@ function EditProperty({  property, getAllProperties, setEditing }) {
           onChange={handleUpdate}
           name="availableDate"
         />
+        {/* <label>Photo:</label>
+        <input type="file" onChange={handleFileChange} accept="image/jpeg, image/png, image/gif" /> */}
       </form>
       <button onClick={updateProperty}>Save</button>
     </div>

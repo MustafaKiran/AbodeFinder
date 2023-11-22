@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./auth.css"
 
 function AgentLogin() {
     const [companyName, setCompanyName] = useState("");
@@ -26,8 +27,8 @@ function AgentLogin() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleLogin} className="form">
+        <div className="loginFormContainer" >
+            <form onSubmit={handleLogin} className="loginForm">
                 <h2>Agent Log in</h2><br />
                 <label>Company Name</label>
                 <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} /><br />
