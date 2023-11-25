@@ -21,7 +21,7 @@ const AgencyGrid = ({ properties, getAllProperties, deleteProperty }) => {
   }, [properties]);
 
   return (
-    <div>
+    <div className="propertyGrid" >
       {properties
         .filter((p) => ownerIds.includes(p._id))
         .map((property) => (

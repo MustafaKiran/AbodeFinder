@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-
+import "./navBar.css"
 function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,9 +39,14 @@ function NavBar() {
   }
 
   return (
-    <>
+    
+    <div className="navbar" >
+      <div className="logo" >
+
+      </div>
+      <div className="links" >
       {(!token && (
-        <div className="navbar">
+        <div className="l">
           {currentPath === "/" && (
             <Link to="/user-register" className="link">
               Sign up
@@ -73,7 +78,7 @@ function NavBar() {
         </div>
       )) ||
         (token && isUser && (
-          <div className="navbar">
+          <div className="l">
             <Link className="link">{decoded.userName}</Link>
             <Link onClick={handleLogout} className="link">
               Log Out
@@ -97,7 +102,9 @@ function NavBar() {
           
           
         ))}
-    </>
+        </div>
+        </div>
+    
   );
 }
 

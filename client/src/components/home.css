@@ -1,0 +1,95 @@
+/* .propertyGrid{
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  margin: 50px 30px 30px 30px;
+  padding: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #f5d8c2;
+  max-width: 100vw;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+} */
+
+.propertyGrid{
+    display: grid;
+  grid-template-columns:minmax(600px,800px) ; 
+  width: auto;
+  /* border: 1px solid black;  */
+  background-image:linear-gradient(#8ecde1 ,#8ecde1);
+  justify-content:center;
+  align-content: center;
+  align-items: center;
+  margin-top: 0px;
+  padding: 20px;
+  row-gap: 30px;
+}
+
+.agencyCardContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 540px;
+    width: 420px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 12px;
+}
+
+.propertyCardContainer{
+    display: flex;
+    /* border: 1px solid black; */
+    /* background-image: linear-gradient(45deg, #c3d6dc, #eff0f0); */
+    background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
+    border-radius: 24px;
+    height: 392px;
+    width: 900px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
+}
+
+.propertyImg{
+    max-width: 450px;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 15px;
+}
+
+.propertyImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.propertyCardDetails{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width:400px ;
+  /* background-color: aqua; */
+}
+
+.keyDetails{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(56, 56, 56);
+    width: 300px;
+}
+
+.keyDetails img{
+    height: 32px;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.propertyCardContainer h2{
+
+}

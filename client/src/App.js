@@ -43,6 +43,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <div className="divider-line"></div>
       <Routes>
         <Route path="/user-login" element={<UserLogin />} />
         <Route path="/agent-login" element={<AgentLogin />} />

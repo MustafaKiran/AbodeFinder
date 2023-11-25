@@ -1,40 +1,128 @@
 * {
-    margin: 0px;
-    padding: 0px;
-   box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  background-color:  #feffff;
-  
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(2px);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
 }
 
 .loginFormContainer {
-    display: flex;
-  background-color: #3f88c5;
-  margin-top: 200px;
-  width: 390px;
-  height: 540px;
-  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff6f4;
+  height: calc(100vh - 200px);
+  padding: 40px;
+}
+
+.loginPhoto {
+  max-width: 375px;
+  max-height: 600px;
+  /* overflow: hidden; */
+  background-color: #fff6f4;
+  outline: none;
+  border: none;
+  
+  border-radius: 20px;
+}
+
+.orange {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0,.7);
+  
 }
 
 .loginForm {
-    display: flex;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0,.7);
   flex-direction: column;
-  justify-content: center;
-  
-  width: 100%;
+  justify-content: start;
+  align-items: center;
+  height: 557px;
+  background-image: radial-gradient(circle, #cae8f2, #6fcce8);
+  max-width: 375px; 
+  width: 100%; 
+  min-width: 350px;
+  margin-left: 20px; 
+}
+.loginForm input {
+  width: 270px;
+  height: 60px;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 10px;
+  background-color: #fff6f4;
+  font-size: 16px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+.loginForm button {
+  transition: all 0.5s;
+  cursor: pointer;
+  width: 270px;
+  height: 60px;
+  border-radius: 15px;
+  padding: 16px;
   margin: 15px;
-
+  text-align: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  background-image: radial-gradient(circle, #ffa41b, #f87f22);
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff6f4;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+.loginForm button{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.loginForm button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 16px;
+  right: 10px;
+  transition: 0.6s;
+  
 }
 
-input{
-    width: 270px;
-    height: 60px;
-    border-radius: 15px;
-    padding: 15px;
+
+.loginForm button:hover{
+  
+  padding-right: 20px;
+  padding-left:0px;
+  background-image: radial-gradient(circle, #ffa41b 50%, #f87f22);
 }
+
+.loginForm button:hover:after {
+  opacity: 1;
+  right: 70px;
+  
+}
+.loginForm h2 {
+  
+  color: #f87f22;
+  margin-bottom: 50px;
+  margin-top: 60px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 32px;
+  
+}
+
+.loginForm .link{
+  color: #f86f03;
+  font-family: 'Montserrat Alternates', sans-serif;
+  
+}
+
+/* #fe7b2f */
+/* CAE8F2 */
+/* #84D2E9 */
+/* 7FCFE8 */

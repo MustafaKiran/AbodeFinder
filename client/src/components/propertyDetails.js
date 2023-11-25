@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-function PropertyDetails() {
+function PropertyDetails(property) {
   const [details, setDetails] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
@@ -24,6 +24,11 @@ function PropertyDetails() {
 
   return (
     <div>
+      <img
+          src={property.photoURL}
+          alt={`Photo of ${property.title}`}
+         
+        />
       <h1>{details.title}</h1>
       <h2>{details.rentAmount}</h2>
       <h2> {details.livingSpace} </h2>
