@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
-import orange from "../../assets/orange.jpg"
+import orange from "../../assets/orange.jpg";
 
 function UserLogin() {
   const [userName, setUserName] = useState("");
@@ -32,35 +32,33 @@ function UserLogin() {
 
   return (
     <div className="loginFormContainer">
-      
-        <div className="loginPhoto" >
-         <img src={orange} className="orange"/>
-        </div>
-        <form onSubmit={handleLogin} className="loginForm">
-          <h2>Hello Again!</h2>
+      <div className="loginPhoto">
+        <img src={orange} className="orange" />
+      </div>
+      <form onSubmit={handleLogin} className="loginForm">
+        <h2>Hello Again!</h2>
 
-          <input
-            placeholder="username"
-            type="text"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-          />
+        <input
+          placeholder="username"
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
 
-          <input
-            placeholder="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <input
+          placeholder="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-          <button type="submit">Log in</button>
-          <div>
+        <button type="submit">Log in</button>
+        <div>
           <Link to="/user-register" className="link">
-              New here?
-            </Link>
-          </div>
-        </form>
-      
+            New here?
+          </Link>
+        </div>
+      </form>
     </div>
   );
 }

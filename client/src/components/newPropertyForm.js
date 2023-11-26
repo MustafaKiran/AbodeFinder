@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { storage } from "./firebase/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
+import "./newPropertyForm.css"
 
 const NewPropertyForm = ({ getAllProperties }) => {
   let token = localStorage.getItem("token");
@@ -22,7 +23,7 @@ const NewPropertyForm = ({ getAllProperties }) => {
     const value = e.target.value;
     setNewProperty({
       ...newProperty,
-      [e.target.name]: value.trim(),
+      [e.target.name]: value,
     });
   };
 
@@ -84,8 +85,11 @@ const NewPropertyForm = ({ getAllProperties }) => {
         }}
         className="newPropertyForm"
       >
+        <h3>Tell Us About Your Property</h3>
         <label>Title:</label>
         <input
+        placeholder="e.g., Spacious flat in the city center "
+          className="newTitle"
           type="text"
           value={newProperty.title}
           onChange={handleInputChange}
@@ -93,6 +97,8 @@ const NewPropertyForm = ({ getAllProperties }) => {
         />
         <label>Rent:</label>
         <input
+        placeholder="€ per month "
+        className="newRent"
           type="number"
           value={newProperty.rentAmount}
           onChange={handleInputChange}
@@ -100,6 +106,8 @@ const NewPropertyForm = ({ getAllProperties }) => {
         />
         <label>Living space:</label>
         <input
+        placeholder="m²"
+        className="newArea"
           type="number"
           value={newProperty.livingSpace}
           onChange={handleInputChange}
@@ -107,6 +115,8 @@ const NewPropertyForm = ({ getAllProperties }) => {
         />
         <label>Number of Bedrooms:</label>
         <input
+        placeholder="Excluding the living room!"
+        className="newRooms"
           type="number"
           value={newProperty.bedrooms}
           onChange={handleInputChange}
@@ -114,6 +124,7 @@ const NewPropertyForm = ({ getAllProperties }) => {
         />
         <label>Vacant from:</label>
         <input
+        id="newDate"
           type="date"
           value={newProperty.availableDate}
           onChange={handleInputChange}
@@ -121,12 +132,14 @@ const NewPropertyForm = ({ getAllProperties }) => {
         />
         <label>Photo:</label>
         <input
+        className="newPhoto"
           type="file"
           onChange={handleFileChange}
           accept="image/jpeg, image/png, image/gif"
         />
+        <button onClick={addNewProperty}>Post</button>
       </form>
-      <button onClick={addNewProperty}>Create</button>
+      
     </div>
   );
 };

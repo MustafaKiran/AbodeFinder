@@ -60,7 +60,7 @@ function NavBar() {
           {currentPath !== "/" && <Link to="/" className="link">
             Home
           </Link>}
-          {currentPath !== "/agency-dashboard" && (
+          {currentPath !== "/agency-dashboard" && currentPath !== "/agent-login"  &&(
             <Link to="/agency-dashboard" className="link">
               Agency portal
             </Link>

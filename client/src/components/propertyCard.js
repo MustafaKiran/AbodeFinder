@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import rent from "../assets/cash-payment.png";
 import area from "../assets/measure.png";
 import room from "../assets/double-bed.png";
+import address from "../assets/room.png"
 const PropertyCard = ({ property, getAllProperties }) => {
   const [editing, setEditing] = useState(false);
 
@@ -13,6 +14,10 @@ const PropertyCard = ({ property, getAllProperties }) => {
       </div>
       <div className="propertyCardDetails">
         <h1 className="title">{property.title}</h1>
+        <div className="address">
+            <img src={address} />
+            <h2>Amsterdam, Noord Holland</h2>
+          </div>
         <div className="keyDetails">
           <div className="detail">
             <img src={rent} />
