@@ -4,6 +4,7 @@ import rent from "../assets/cash-payment.png";
 import area from "../assets/measure.png";
 import room from "../assets/double-bed.png";
 import address from "../assets/room.png"
+
 const PropertyCard = ({ property, getAllProperties }) => {
   const [editing, setEditing] = useState(false);
 

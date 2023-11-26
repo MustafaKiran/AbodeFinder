@@ -5,6 +5,9 @@ import rent from "../assets/cash-payment.png";
 import area from "../assets/measure.png";
 import room from "../assets/double-bed.png";
 import address from "../assets/room.png";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import "./agency-dashboard.css";
 const AgencyCard = ({ property, deleteProperty, getAllProperties }) => {
   const [editing, setEditing] = useState(false);
 
@@ -43,21 +46,31 @@ const AgencyCard = ({ property, deleteProperty, getAllProperties }) => {
             <h2>{property.bedrooms} bedrooms</h2>
           </div>
         </div>
-
         <Link to={`/property/${property._id}`}>View Details</Link>
+        <div className="cardButtons">
+        <button onClick={handleDelete}>
+          <h1>
+            <DeleteForeverIcon />
+          </h1>
+        </button >
+        <button id="editButton"  onClick={handleEdit}>
+          <h1>
+            <ModeEditIcon />
+          </h1>
+        </button>
       </div>
-      <div className="cardButtons">
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleEdit}>Edit</button>
+
+       
       </div>
-      <div className="editingCard">
-        {editing && (
+      
+      <div className={`editingOverlay ${editing ? "active" : ""}`}>
+        <div className="editingWindow">
           <EditProperty
             property={property}
             setEditing={setEditing}
             getAllProperties={getAllProperties}
           />
-        )}
+        </div>
       </div>
     </div>
   );

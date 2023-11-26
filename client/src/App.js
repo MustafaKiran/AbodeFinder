@@ -49,7 +49,7 @@ function App() {
         <Route path="/agent-login" element={<AgentLogin />} />
         <Route path="/user-register" element={<UserRegister />} />
         <Route path="/agent-register" element={<AgentRegister />} />
-        <Route path="/property/:id" element={<PropertyDetails />} />
+        <Route path="/property/:id" element={<PropertyDetails/>} />
         <Route
           path="/new-property-form"
           element={

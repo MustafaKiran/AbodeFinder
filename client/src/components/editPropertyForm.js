@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import "./editPropertyForm.css"
 function EditProperty({ property, getAllProperties, setEditing }) {
   const [editedProperty, setEditedProperty] = useState({
     title: property.title,
@@ -62,7 +62,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
   }
 
   return (
-    <div>
+    <div className="updatePropertyFormContainer" >
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -70,8 +70,10 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         }}
         className="updatePropertyForm"
       >
+        <h3>Update Your Property Details</h3>
         <label>Title:</label>
         <input
+        className="newTitle"
           type="text"
           value={editedProperty.title}
           onChange={handleUpdate}
@@ -79,6 +81,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         />
         <label>Rent:</label>
         <input
+        className="newRent"
           type="number"
           value={editedProperty.rentAmount}
           onChange={handleUpdate}
@@ -86,6 +89,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         />
         <label>Living space:</label>
         <input
+        className="newArea"
           type="number"
           value={editedProperty.livingSpace}
           onChange={handleUpdate}
@@ -93,6 +97,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         />
         <label>Number of Bedrooms:</label>
         <input
+        className="newRooms"
           type="number"
           value={editedProperty.bedrooms}
           onChange={handleUpdate}
@@ -100,6 +105,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         />
         <label>Vacant from:</label>
         <input
+        id="updateDate"
           type="date"
           value={editedProperty.availableDate}
           onChange={handleUpdate}
@@ -107,8 +113,9 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         />
         {/* <label>Photo:</label>
         <input type="file" onChange={handleFileChange} accept="image/jpeg, image/png, image/gif" /> */}
+        <button onClick={updateProperty}>Save</button>
       </form>
-      <button onClick={updateProperty}>Save</button>
+      
     </div>
   );
 }

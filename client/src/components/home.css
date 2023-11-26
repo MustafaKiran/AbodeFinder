@@ -1,29 +1,5 @@
-.agencyGrid{
-    display: grid;
-  grid-template-columns:minmax(600px,800px) ; 
-  width: auto;
-  /* border: 1px solid black;  */
-  background-image:linear-gradient(#8ecde1 ,#8ecde1);
-  justify-content:center;
-  align-content: center;
-  align-items: center;
-  margin-top: 0px;
-  padding: 20px;
-  row-gap: 30px;
-}
-.agencyCardContainer{
-    display: flex;
-    /* border: 1px solid black; */
-    /* background-image: linear-gradient(45deg, #c3d6dc, #eff0f0); */
-    background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
-    border-radius: 24px;
-    height: 392px;
-    width: 1000px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
-}
+
+
 .propertyGrid{
     display: grid;
   grid-template-columns:minmax(600px,800px) ; 
@@ -43,7 +19,7 @@
 .propertyCardContainer{
     display: flex;
     /* border: 1px solid black; */
-    /* background-image: linear-gradient(45deg, #c3d6dc, #eff0f0); */
+    
     background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
     border-radius: 24px;
     height: 392px;
@@ -102,6 +78,5 @@
     display: flex;
     align-items: center;
 }
-.propertyCardContainer h2{
 
-}
+

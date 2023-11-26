@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import orange from "../../assets/orange.jpg";
 function UserRegister() {
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
@@ -48,31 +49,38 @@ function UserRegister() {
   }
 
   return (
-    <div>
+    <div className="loginFormContainer" >
+      <div className="loginPhoto">
+        <img src={orange} className="orange" />
+      </div>
       <form onSubmit={addNewUser} className="newUserForm">
-        <label>Username:</label>
+      <h2>Join the Home Hunt!</h2>
         <input
+        placeholder="Username"
           type="text"
           value={newUser.userName}
           onChange={handleInputChange}
           name="userName"
         />
-        <label>Email:</label>
+        
         <input
+        placeholder="Email"
           type="text"
           value={newUser.email}
           onChange={handleInputChange}
           name="email"
         />
-        <label>Password:</label>
+        
         <input
+        placeholder="Password"
           type="password"
           value={newUser.password}
           onChange={handleInputChange}
           name="password"
         />
-        <label>Phone number:</label>
+        
         <input
+        placeholder="Phone number"
           type="text"
           value={newUser.phoneNumber}
           onChange={handleInputChange}

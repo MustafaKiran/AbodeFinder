@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import orange from "../../assets/agentlog1.png";
 function AgentRegister() {
   const navigate = useNavigate();
   const [newAgent, setNewAgent] = useState({
@@ -16,7 +17,7 @@ function AgentRegister() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setNewAgent({ ...newAgent, [e.target.name]: value.trim() });
+    setNewAgent({ ...newAgent, [e.target.name]: value });
   };
 
   async function addNewAgent(e) {
@@ -42,10 +43,10 @@ function AgentRegister() {
         "http://localhost:8000/register-agent",
         newAgent
       );
-        navigate("/agent-login")
+      navigate("/agent-login");
       alert(res.data.msg);
     } catch (error) {
-      alert(error.response.data.msg)
+      alert(error.response.data.msg);
       console.log("Error adding new agent", error);
     } finally {
       setIsLoading(false);
@@ -53,50 +54,61 @@ function AgentRegister() {
   }
 
   return (
-    <div>
+    <div className="loginFormContainer">
+      <div className="loginPhoto">
+        <img src={orange} className="orangeAgent" />
+      </div>
       <form onSubmit={addNewAgent} className="newAgentForm">
-        <label>Company Name:</label>
-        <input
-          type="text"
-          value={newAgent.companyName}
-          onChange={handleInputChange}
-          name="companyName"
-        />
-        <label>Contact Person:</label>
-        <input
-          type="text"
-          value={newAgent.contactPerson}
-          onChange={handleInputChange}
-          name="contactPerson"
-        />
-        <label>Email:</label>
-        <input
-          type="text"
-          value={newAgent.email}
-          onChange={handleInputChange}
-          name="email"
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          value={newAgent.password}
-          onChange={handleInputChange}
-          name="password"
-        />
-        <label>Phone number:</label>
-        <input
-          type="text"
-          value={newAgent.phoneNumber}
-          onChange={handleInputChange}
-          name="phoneNumber"
-        />
-        <label>Agency Description:</label>
-        <input
-          type="text"
-          value={newAgent.agencyDescription}
-          onChange={handleInputChange}
-          name="agencyDescription"
-        />
+        <h2>Empower Your Listings: <br/> Join as an Agent</h2>
+        <div className="signUpDetails"  >
+          <input
+            placeholder="Email"
+            type="text"
+            value={newAgent.email}
+            onChange={handleInputChange}
+            name="email"
+          />
+          <input
+            placeholder="Password"
+            type="password"
+            value={newAgent.password}
+            onChange={handleInputChange}
+            name="password"
+          />
+        </div>
+        <div  className="signUpDetails">
+          <input
+            placeholder="Company Name"
+            type="text"
+            value={newAgent.companyName}
+            onChange={handleInputChange}
+            name="companyName"
+          />
+          <input
+            placeholder="Contact Person"
+            type="text"
+            value={newAgent.contactPerson}
+            onChange={handleInputChange}
+            name="contactPerson"
+          />
+        </div>
+        <div  className="signUpDetails" >
+          <textarea
+          id="agencyDescription"
+            placeholder="Agency Description"
+            type="text"
+            value={newAgent.agencyDescription}
+            onChange={handleInputChange}
+            name="agencyDescription"
+          />
+          <input
+            placeholder="Phone number"
+            type="text"
+            value={newAgent.phoneNumber}
+            onChange={handleInputChange}
+            name="phoneNumber"
+          />
+        </div>
 
         <button type="submit" disabled={isLoading}>
           Register

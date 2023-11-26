@@ -1,6 +1,5 @@
 import PropertyCard from "./propertyCard";
 import "./home.css"
-import PropertyDetails from "./propertyDetails";
 const PropertyGrid = ({ properties, getAllProperties }) => {
   
   

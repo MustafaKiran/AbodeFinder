@@ -55,7 +55,7 @@ function UserLogin() {
         <button type="submit">Log in</button>
         <div>
           <Link to="/user-register" className="link">
-            New here?
+          New here? Sign up for free! 
           </Link>
         </div>
       </form>

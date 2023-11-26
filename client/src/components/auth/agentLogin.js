@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
-import orange from "../../assets/agentlog.png";
+import orange from "../../assets/agentlog1.png";
 
 function AgentLogin() {
   const [companyName, setCompanyName] = useState("");

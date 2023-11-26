@@ -25,7 +25,7 @@ function PropertyDetails(property) {
   return (
     <div>
       <img
-          src={property.photoURL}
+          src={details.photoURL}
           alt={`Photo of ${property.title}`}
          
         />

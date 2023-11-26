@@ -1,11 +1,35 @@
-.newPropertyFormContainer {
-  display: flex;
-  justify-content: center;
-  background-image: radial-gradient(circle, #cae8f2, #6fcce8);
-  height: 100vh;
-}
+/* Update Form */
 
-.newPropertyForm {
+
+.editingOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .editingOverlay.active {
+    display: block;
+  }
+  
+  .editingWindow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1100;
+  }
+.updatePropertyForm {
   font-family: "Montserrat Alternates", sans-serif;
   display: flex;
   flex-wrap: wrap;
@@ -18,17 +42,16 @@
   padding: 50px;
   max-height: 700px;
   background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
-  max-width: 600px;
+  max-width: 400px;
   min-width: 350px;
   margin-left: 30px;
 }
-
-.newPropertyForm h3 {
+.updatePropertyForm h3 {
   color: #f87f22;
   margin-bottom: 10px;
 }
 
-.newPropertyForm input {
+.updatePropertyForm input {
   background-color: #fff6f4;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
   margin-bottom: 10px;
@@ -38,23 +61,14 @@
   padding: 16px;
 }
 
-.newTitle {
-  height: 64px;
-  font-size: 16px;
-}
-
-#newDate {
-  width: 150px;
-}
-.newPropertyForm button {
+.updatePropertyForm button {
   margin-top: 10px;
-  /* transition: all 0.5s; */
   cursor: pointer;
   width: 300px;
   height: 60px;
   border-radius: 8px;
   padding: 16px;
-  
+
   text-align: center;
   font-family: "Montserrat Alternates", sans-serif;
   background-image: radial-gradient(circle, #ffa41b, #f87f22);
@@ -68,7 +82,7 @@
   transition: 0.5s;
 }
 
-.newPropertyForm button:after {
+.updatePropertyForm button:after {
   content: "»";
   position: absolute;
   opacity: 0;
@@ -76,18 +90,12 @@
   right: 10px;
   transition: 0.6s;
 }
-.newPropertyForm button:hover {
+.updatePropertyForm button:hover {
   padding-right: 20px;
   padding-left: 0px;
   background-image: radial-gradient(circle, #ffa41b 50%, #f87f22);
 }
-.newPropertyForm button:hover:after {
+.updatePropertyForm button:hover:after {
   opacity: 1;
   right: 70px;
 }
-
-.newPhoto button{
-color: #f87f22;
-}
-
-   
