@@ -48,7 +48,7 @@
   border-radius: 20px;
   box-shadow: 0 15px 30px -8px rgba(0, 0, 0,.7);
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 557px;
   background-image: radial-gradient(circle, #cae8f2, #6fcce8);
@@ -146,7 +146,7 @@
   border-radius: 20px;
   box-shadow: 0 15px 30px -8px rgba(0, 0, 0,.7);
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 557px;
   background-image: radial-gradient(circle, #cae8f2, #6fcce8);
@@ -229,7 +229,7 @@
   border-radius: 20px;
   box-shadow: 0 15px 30px -8px rgba(0, 0, 0,.7);
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 557px;
   background-image: radial-gradient(circle, #cae8f2, #6fcce8);
@@ -296,7 +296,7 @@
 .signUpDetails{
   
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   
 }
 

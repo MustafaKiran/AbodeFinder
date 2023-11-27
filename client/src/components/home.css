@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: minmax(600px, 800px);
   width: auto;
+  font-family: "Montserrat Alternates", sans-serif;
   background-image: linear-gradient(#8ecde1, #8ecde1);
   justify-content: center;
   align-content: center;
@@ -18,7 +19,7 @@
   display: flex;
   background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
   border-radius: 24px;
-  height: 392px;
+  height: 332px;
   width: 900px;
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 12px;
@@ -28,7 +29,7 @@
 /* property image container */
 .propertyImg {
   width: 450px;
-  height: 360px;
+  height: 300px;
   border-radius: 16px;
   overflow: hidden;
   position: relative;
@@ -47,6 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 400px;
   padding-top: 5px;
   padding-bottom: 30px;
@@ -58,6 +60,7 @@
   justify-content: space-between;
   color: rgb(56, 56, 56);
   width: 300px;
+  margin: 30px 0 15px 0;
 }
 
 .propertyCardDetails img {
@@ -70,9 +73,19 @@
   align-items: center;
 }
 
+/* .title{ 
+  overflow-y:auto;
+} */
 .address {
   display: flex;
   align-items: center;
+}
+
+.companyDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
 }
 
 

@@ -1,67 +1,63 @@
-.agencyGrid{
-    display: grid;
-  grid-template-columns:minmax(600px,800px) ; 
+.agencyGrid {
+  display: grid;
+  grid-template-columns: minmax(600px, 800px);
   width: auto;
-  background-image:linear-gradient(#8ecde1 ,#8ecde1);
-  justify-content:center;
+  background-image: linear-gradient(#8ecde1, #8ecde1);
+  justify-content: center;
   align-content: center;
   align-items: center;
   margin-top: 0px;
   padding: 20px;
   row-gap: 30px;
 }
-.agencyCardContainer{
-    display: flex;
-    background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
-    border-radius: 24px;
-    height: 392px;
-    width: 900px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
+.agencyCardContainer {
+  display: flex;
+  background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
+  border-radius: 24px;
+  height: 332px;
+  width: 900px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
 }
-.cardButtons{
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: start;
-    align-items: center;
+.cardButtons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .cardButtons button {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
-    cursor: pointer;
-    width: 150px;
-    height: 50px;
-    border-radius: 8px;
-    /* padding: 16px; */
-    margin: 10px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    background-image: radial-gradient(circle, #ffa41b, #f87f22);
-    
-    
-    color: #fff6f4;
-    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
-    cursor: pointer;
-    transition: 0.5s;
-  }
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  /* padding: 16px; */
+  margin: 10px;
   
-  .cardButtons button:hover {
-    background-image: radial-gradient(circle, #ff581b 50%, #fd3b14);
-  }
-  #editButton:hover{
-    background-image: radial-gradient(circle, #34b8e0 50% ,#00a7da   );
-  }
-  
-  .cardButtons button svg {
-    transition: transform 0.5s ease; 
-    transform: scale(1); 
-  }
-  
-  .cardButtons button:hover svg {
-    transform: scale(1.5); 
-  }
-  
-  
+  font-family: "Montserrat Alternates", sans-serif;
+  background-image: radial-gradient(circle, #ffa41b, #f87f22);
+  color: #fff6f4;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.cardButtons button:hover {
+  background-image: radial-gradient(circle, #ff581b 50%, #fd3b14);
+}
+#editButton:hover {
+  background-image: radial-gradient(circle, #34b8e0 50%, #00a7da);
+}
+
+.cardButtons button svg {
+  transition: transform 0.5s ease;
+  transform: scale(1);
+}
+
+.cardButtons button:hover svg {
+  transform: scale(1.5);
+}

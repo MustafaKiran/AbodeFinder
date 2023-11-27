@@ -33,10 +33,12 @@ const PropertyCard = ({ property, getAllProperties }) => {
             <h2>{property.bedrooms} bedrooms</h2>
           </div>
         </div>
-        <Link to={`/property/${property._id}`}>View details</Link>
         {/* <h2>Vacant from: {property.availableDate.split("T")[0]} </h2> */}
+        <div className="companyDetails" >
         <h3>Owner: {property.owner.companyName}</h3>
-
+        <Link to={`/property/${property._id}`}>View details</Link>
+        </div>
+        
         
       </div>
     </div>

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PropertyCard from "./components/propertyCard";
 import PropertyGrid from "./components/propertyGrid";
 import NewPropertyForm from "./components/newPropertyForm";
 import axios from "axios";
 import AgencyGrid from "./components/agencyGrid";
-import EditProperty from "./components/editPropertyForm";
 import NavBar from "./components/navBar";
 import PropertyDetails from "./components/propertyDetails";
 import UserLogin from "./components/auth/userLogin";
@@ -50,7 +48,7 @@ function App() {
         <Route path="/agent-login" element={<AgentLogin />} />
         <Route path="/user-register" element={<UserRegister />} />
         <Route path="/agent-register" element={<AgentRegister />} />
-        <Route path="/property/:id" element={<PropertyDetails/>} />
+        <Route path="/property/:id" element={<PropertyDetails />} />
         <Route
           path="/new-property-form"
           element={
@@ -76,14 +74,13 @@ function App() {
           element={
             <>
               {token ? (
-                
                 <AgencyGrid
                   getAllProperties={getAllProperties}
                   properties={properties}
                   deleteProperty={deleteProperty}
                 />
               ) : (
-                <Intro/>
+                <Intro />
               )}
             </>
           }

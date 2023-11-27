@@ -1,6 +1,8 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "./navBar.css"
+import sil from "../assets/sil.png"
+import logo from "../assets/orangeLogo.png"
 function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,7 +44,10 @@ function NavBar() {
     
     <div className="navbar" >
       <div className="logo" >
-
+        <img  src={logo}/>
+      </div>
+      <div className="centerPhoto" >
+        <img  src={sil}/>
       </div>
       <div className="links" >
       {(!token && (
@@ -90,7 +95,7 @@ function NavBar() {
           </div>
         )) ||
         (token && isAgency && (
-          <div>
+          <div className="l">
             <Link to="/agency-dashboard" className="link">{decoded.companyName}</Link>
             <Link to="/new-property-form" className="link">
               Add a New Ad
