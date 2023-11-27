@@ -6,6 +6,10 @@ const propertySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+    },
     rentAmount: {
       type: Number,
       required: true,

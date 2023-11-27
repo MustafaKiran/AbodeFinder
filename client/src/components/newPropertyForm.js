@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { storage } from "./firebase/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
-import "./newPropertyForm.css"
+import "./newPropertyForm.css";
 
 const NewPropertyForm = ({ getAllProperties }) => {
   let token = localStorage.getItem("token");
@@ -13,6 +13,7 @@ const NewPropertyForm = ({ getAllProperties }) => {
 
   const [newProperty, setNewProperty] = useState({
     title: "",
+    address: "",
     rentAmount: "",
     livingSpace: "",
     bedrooms: "",
@@ -86,60 +87,89 @@ const NewPropertyForm = ({ getAllProperties }) => {
         className="newPropertyForm"
       >
         <h3>Tell Us About Your Property</h3>
-        <label>Title:</label>
-        <input
-        placeholder="e.g., Spacious flat in the city center "
-          className="newTitle"
-          type="text"
-          value={newProperty.title}
-          onChange={handleInputChange}
-          name="title"
-        />
-        <label>Rent:</label>
-        <input
-        placeholder="€ per month "
-        className="newRent"
-          type="number"
-          value={newProperty.rentAmount}
-          onChange={handleInputChange}
-          name="rentAmount"
-        />
-        <label>Living space:</label>
-        <input
-        placeholder="m²"
-        className="newArea"
-          type="number"
-          value={newProperty.livingSpace}
-          onChange={handleInputChange}
-          name="livingSpace"
-        />
-        <label>Number of Bedrooms:</label>
-        <input
-        placeholder="Excluding the living room!"
-        className="newRooms"
-          type="number"
-          value={newProperty.bedrooms}
-          onChange={handleInputChange}
-          name="bedrooms"
-        />
-        <label>Vacant from:</label>
-        <input
-        id="newDate"
-          type="date"
-          value={newProperty.availableDate}
-          onChange={handleInputChange}
-          name="availableDate"
-        />
-        <label>Photo:</label>
-        <input
-        className="newPhoto"
-          type="file"
-          onChange={handleFileChange}
-          accept="image/jpeg, image/png, image/gif"
-        />
+        <div className="formPairs">
+          <div className="formDetail">
+            <label>Title:</label>
+            <input
+              placeholder="e.g. Spacious flat in the city center "
+              className="newTitle"
+              type="text"
+              value={newProperty.title}
+              onChange={handleInputChange}
+              name="title"
+            />
+          </div>
+          <div className="formDetail">
+            <label>Address:</label>
+            <input
+              placeholder="Street name, house number, city "
+              className="newAddress"
+              type="text"
+              value={newProperty.address}
+              onChange={handleInputChange}
+              name="address"
+            />
+          </div>
+        </div>
+        <div className="formPairs">
+          <div className="formDetail">
+            <label>Rent:</label>
+            <input
+              placeholder="€ per month "
+              className="newRent"
+              type="number"
+              value={newProperty.rentAmount}
+              onChange={handleInputChange}
+              name="rentAmount"
+            />
+          </div>
+          <div className="formDetail">
+            <label>Living space:</label>
+            <input
+              placeholder="m²"
+              className="newArea"
+              type="number"
+              value={newProperty.livingSpace}
+              onChange={handleInputChange}
+              name="livingSpace"
+            />
+          </div>
+        </div>
+        <div className="formPairs">
+          <div className="formDetail">
+            <label>Number of Bedrooms:</label>
+            <input
+              placeholder="e.g. 3"
+              className="newRooms"
+              type="number"
+              value={newProperty.bedrooms}
+              onChange={handleInputChange}
+              name="bedrooms"
+            />
+          </div>
+          <div className="formDetail">
+            <label>Vacant from:</label>
+            <input
+              id="newDate"
+              type="date"
+              value={newProperty.availableDate}
+              onChange={handleInputChange}
+              name="availableDate"
+            />
+          </div>
+        </div>
+        <div className="formDetail">
+          <label>Photo:</label>
+          <input
+            className="newPhoto"
+            type="file"
+            onChange={handleFileChange}
+            accept="image/jpeg, image/png, image/gif"
+          />
+        </div>
+
         <button onClick={addNewProperty}>Post</button>
       </form>
-      
     </div>
   );
 };

@@ -18,14 +18,27 @@
   padding: 50px;
   max-height: 700px;
   background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
-  max-width: 600px;
-  min-width: 350px;
+  max-width: 750px;
+  min-width: 400px;
   margin-left: 30px;
+}
+
+.formPairs{
+    display: flex;
+    /* justify-content: space-between; */
+    
+}
+.formDetail{
+display: flex;
+flex-direction: column;
+margin-right: 15px;
+margin-left: 15px;
 }
 
 .newPropertyForm h3 {
   color: #f87f22;
   margin-bottom: 10px;
+  margin-left: 15px;
 }
 
 .newPropertyForm input {
@@ -34,6 +47,7 @@
   margin-bottom: 10px;
   font-size: 16px;
   width: 300px;
+  height: 64px;
   border-radius: 8px;
   padding: 16px;
 }
@@ -54,7 +68,8 @@
   height: 60px;
   border-radius: 8px;
   padding: 16px;
-  
+  margin-left: 15px;
+
   text-align: center;
   font-family: "Montserrat Alternates", sans-serif;
   background-image: radial-gradient(circle, #ffa41b, #f87f22);
@@ -86,8 +101,10 @@
   right: 70px;
 }
 
-.newPhoto button{
+.newPhoto {
 color: #f87f22;
+
 }
+
 
    

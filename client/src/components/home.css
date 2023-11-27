@@ -1,12 +1,11 @@
 
-
-.propertyGrid{
-    display: grid;
-  grid-template-columns:minmax(600px,800px) ; 
+/* Home grid view */
+.propertyGrid {
+  display: grid;
+  grid-template-columns: minmax(600px, 800px);
   width: auto;
-  /* border: 1px solid black;  */
-  background-image:linear-gradient(#8ecde1 ,#8ecde1);
-  justify-content:center;
+  background-image: linear-gradient(#8ecde1, #8ecde1);
+  justify-content: center;
   align-content: center;
   align-items: center;
   margin-top: 0px;
@@ -14,69 +13,84 @@
   row-gap: 30px;
 }
 
-
-
-.propertyCardContainer{
-    display: flex;
-    /* border: 1px solid black; */
-    
-    background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
-    border-radius: 24px;
-    height: 392px;
-    width: 900px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 12px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
+/* Ad container */
+.propertyCardContainer {
+  display: flex;
+  background-image: linear-gradient(45deg, #c3d6dc, #fff6f4);
+  border-radius: 24px;
+  height: 392px;
+  width: 900px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.186);
 }
-
-.propertyImg{
-    width: 450px;
-    height: 360px;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    margin-right: 15px;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.186);
+/* property image container */
+.propertyImg {
+  width: 450px;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 15px;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.186);
 }
-
-.propertyImg img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    
+/* Property Image */
+.propertyImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-
-.propertyCardDetails{
+/* details container */
+.propertyCardDetails {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:400px ;
-  
-  /* background-color: aqua; */
+  width: 400px;
+  padding-top: 5px;
+  padding-bottom: 30px;
 }
 
-.keyDetails{
-    display: flex;
-    justify-content: space-between;
-    color: rgb(56, 56, 56);
-    width: 300px;
+/* details with icons */
+.keyDetails {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(56, 56, 56);
+  width: 300px;
 }
 
-.propertyCardDetails img{
-    height: 32px;
+.propertyCardDetails img {
+  height: 32px;
 }
 
-.detail{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.address{
-    display: flex;
-    align-items: center;
+.address {
+  display: flex;
+  align-items: center;
 }
 
+
+/* view details link */
+
+.propertyCardDetails a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.5s;
+  color: #f87f22;
+  padding: 6px;
+  width: 120px;
+}
+
+.propertyCardDetails a:hover {
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.186);
+  background-color: #6fcce8;
+  border-radius: 8px;
+}
 

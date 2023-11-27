@@ -12,9 +12,10 @@ import UserLogin from "./components/auth/userLogin";
 import AgentLogin from "./components/auth/agentLogin";
 import UserRegister from "./components/auth/userRegister";
 import AgentRegister from "./components/auth/agentRegister";
+import Intro from "./components/intro";
 function App() {
   const [properties, setProperties] = useState([]);
-
+  const token = localStorage.getItem("token");
   async function getAllProperties() {
     try {
       const res = await axios.get("http://localhost:8000");
@@ -74,11 +75,16 @@ function App() {
           path="/agency-dashboard"
           element={
             <>
-              <AgencyGrid
-                getAllProperties={getAllProperties}
-                properties={properties}
-                deleteProperty={deleteProperty}
-              />
+              {token ? (
+                
+                <AgencyGrid
+                  getAllProperties={getAllProperties}
+                  properties={properties}
+                  deleteProperty={deleteProperty}
+                />
+              ) : (
+                <Intro/>
+              )}
             </>
           }
         />

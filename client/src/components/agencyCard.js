@@ -30,7 +30,7 @@ const AgencyCard = ({ property, deleteProperty, getAllProperties }) => {
         <h1 className="title">{property.title}</h1>
         <div className="address">
           <img src={address} />
-          <h2>Amsterdam, Noord Holland</h2>
+          <h2>{property.address} Amsterdam, Noord Holland</h2>
         </div>
         <div className="keyDetails">
           <div className="detail">

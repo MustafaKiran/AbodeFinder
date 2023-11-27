@@ -4,13 +4,14 @@ import "./editPropertyForm.css"
 function EditProperty({ property, getAllProperties, setEditing }) {
   const [editedProperty, setEditedProperty] = useState({
     title: property.title,
+    address:property.address,
     rentAmount: property.rentAmount,
     livingSpace: property.livingSpace,
     bedrooms: property.bedrooms,
     availableDate: property.availableDate,
     // photoURL: property.photoURL,
   });
-  console.log(property);
+  
   const handleUpdate = (e) => {
     const value = e.target.value;
     setEditedProperty({ ...editedProperty, [e.target.name]: value });
@@ -20,6 +21,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
     try {
       // Validation for empty or blank space entry
       const trimmedTitle = editedProperty.title.trim();
+      const trimmedAddress = editedProperty.address.trim()
       const trimmedRentAmount = editedProperty.rentAmount.toString().trim();
       const trimmedLivingSpace = editedProperty.livingSpace.toString().trim();
       const trimmedBedrooms = editedProperty.bedrooms.toString().trim();
@@ -27,6 +29,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
       // const trimmedPhotoURL = editedProperty.photoURL.trim()    || !trimmedPhotoURL
       if (
         !trimmedTitle ||
+        !trimmedAddress ||
         !trimmedRentAmount ||
         !trimmedLivingSpace ||
         !trimmedBedrooms ||
@@ -38,6 +41,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
 
       await axios.put(`http://localhost:8000/${property._id}`, {
         title: trimmedTitle,
+        address:trimmedAddress,
         rentAmount: trimmedRentAmount,
         livingSpace: trimmedLivingSpace,
         bedrooms: trimmedBedrooms,
@@ -46,6 +50,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
       });
       setEditedProperty({
         title: "",
+        address:"",
         rentAmount: "",
         livingSpace: "",
         bedrooms: "",
@@ -78,6 +83,14 @@ function EditProperty({ property, getAllProperties, setEditing }) {
           value={editedProperty.title}
           onChange={handleUpdate}
           name="title"
+        />
+        <label>Address:</label>
+        <input
+        className="newAddress"
+          type="text"
+          value={editedProperty.address}
+          onChange={handleUpdate}
+          name="address"
         />
         <label>Rent:</label>
         <input

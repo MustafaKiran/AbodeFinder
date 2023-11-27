@@ -1,0 +1,23 @@
+.propertyDetailsContainer{
+    display: flex;
+    margin-top: 30px;
+}
+.propertyImages{
+    width: 750px;
+    height: 600px;
+}
+
+.propertyImages img{
+    max-width: 100%;
+    height: auto;
+}
+
+.propertyDetails{
+    font-family: 'Montserrat Alternates', sans-serif;
+    margin-left: 20px;
+    color: rgb(101, 101, 101);
+}
+.propertyDetails h1{
+    color: rgb(23, 23, 23);
+    margin-bottom: 40px;
+}

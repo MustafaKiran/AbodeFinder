@@ -20,6 +20,7 @@ function AgentLogin() {
         localStorage.setItem("token", res.data.token);
 
         navigate("/agency-dashboard");
+        window.location.reload();
       }
     } catch (err) {
       if (err.response && err.response.status === 401) {
@@ -39,7 +40,6 @@ function AgentLogin() {
       </div>
       <form onSubmit={handleLogin} className="loginForm">
         <h2>Welcome back!</h2>
-        
 
         <input
           placeholder="Company name"
@@ -47,7 +47,6 @@ function AgentLogin() {
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
         />
-        
 
         <input
           placeholder="password"
@@ -55,7 +54,7 @@ function AgentLogin() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        
+
         <button type="submit">Log in</button>
         <div>
           <Link to="/agent-register" className="link">
