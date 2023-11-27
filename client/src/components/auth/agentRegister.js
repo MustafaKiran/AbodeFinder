@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import orange from "../../assets/agentlog1.png";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function AgentRegister() {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const [newAgent, setNewAgent] = useState({
     companyName: "",
     contactPerson: "",
@@ -68,13 +74,18 @@ function AgentRegister() {
             onChange={handleInputChange}
             name="email"
           />
+          <div className="passContainer">
           <input
-            placeholder="Password"
-            type="password"
+            placeholder="password"
+            type={showPassword ? "text" : "password"}
             value={newAgent.password}
             onChange={handleInputChange}
             name="password"
           />
+          <span onMouseDown={togglePasswordVisibility}>
+            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+          </span>
+        </div>
         </div>
         <div  className="signUpDetails">
           <input

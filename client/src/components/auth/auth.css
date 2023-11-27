@@ -132,6 +132,8 @@
   
 }
 
+
+
 /* #fe7b2f */
 /* CAE8F2 */
 /* #84D2E9 */
@@ -292,8 +294,10 @@
   
 }
 .signUpDetails{
+  
   display: flex;
   align-items: start;
+  
 }
 
 #agencyDescription{
@@ -312,3 +316,34 @@
   
 }
 
+
+
+.passContainer{
+  display: flex;
+  align-items: center;
+  width: 270px;
+  height: 60px;
+  margin: 10px;
+  border-radius: 15px;
+  background-color: #fff6f4;
+  font-size: 16px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.passContainer input{
+  
+  width: 215px;
+  box-shadow: none;
+}
+
+.passContainer span{
+  /* margin-right: 10px; */
+  font-size:4px;
+}
+.passContainer span svg{
+  height: 20px;
+}
+.passContainer span svg:hover{
+  cursor: pointer;
+}

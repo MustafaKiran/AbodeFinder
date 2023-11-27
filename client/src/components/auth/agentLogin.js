@@ -3,11 +3,17 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
 import orange from "../../assets/agentlog1.png";
-
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function AgentLogin() {
   const [companyName, setCompanyName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -48,12 +54,17 @@ function AgentLogin() {
           onChange={(e) => setCompanyName(e.target.value)}
         />
 
-        <input
-          placeholder="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="passContainer">
+          <input
+            placeholder="password"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <span onClick={togglePasswordVisibility}>
+            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+          </span>
+        </div>
 
         <button type="submit">Log in</button>
         <div>

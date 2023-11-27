@@ -2,7 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import orange from "../../assets/orange.jpg";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function UserRegister() {
+  const [showPassword, setShowPassword] = useState(false);
+  
   const navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     userName: "",
@@ -15,7 +19,10 @@ function UserRegister() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setNewUser({ ...newUser, [e.target.name]: value.trim() });
+    setNewUser({ ...newUser, [e.target.name]: value });
+  };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   async function addNewUser(e) {
@@ -71,13 +78,19 @@ function UserRegister() {
           name="email"
         />
         
-        <input
-        placeholder="Password"
-          type="password"
-          value={newUser.password}
-          onChange={handleInputChange}
-          name="password"
-        />
+        <div className="passContainer">
+          <input
+            placeholder="password"
+            type={showPassword ? "text" : "password"}
+            value={newUser.password}
+            onChange={handleInputChange}
+            name="password"
+          />
+          <span onMouseDown={togglePasswordVisibility}>
+            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+          </span>
+        </div>
+        
         
         <input
         placeholder="Phone number"

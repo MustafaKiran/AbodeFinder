@@ -3,11 +3,18 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
 import orange from "../../assets/orange.jpg";
-
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function UserLogin() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -44,18 +51,22 @@ function UserLogin() {
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
-
-        <input
-          placeholder="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="passContainer">
+          <input
+            placeholder="password"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <span onClick={togglePasswordVisibility}>
+            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+          </span>
+        </div>
 
         <button type="submit">Log in</button>
         <div>
           <Link to="/user-register" className="link">
-          New here? Sign up for free! 
+            New here? Sign up for free!
           </Link>
         </div>
       </form>
