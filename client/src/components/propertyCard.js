@@ -7,7 +7,7 @@ import address from "../assets/room.png";
 
 const PropertyCard = ({ property, getAllProperties }) => {
   const [editing, setEditing] = useState(false);
-
+  const token = localStorage.getItem("token");
   return (
     <div className="propertyCardContainer">
       <div className="propertyImg">
@@ -17,7 +17,7 @@ const PropertyCard = ({ property, getAllProperties }) => {
         <h1 className="title">{property.title}</h1>
         <div className="address">
           <img src={address} />
-          <h2>{property.address} Amsterdam, Noord Holland</h2>
+          <h2>{property.address}</h2>
         </div>
         <div className="keyDetails">
           <div className="detail">
@@ -26,17 +26,17 @@ const PropertyCard = ({ property, getAllProperties }) => {
           </div>
           <div className="detail">
             <img src={area} />
-            <h2>{property.livingSpace}m² </h2>
+            <h2>{property.livingSpace} m² </h2>
           </div>
           <div className="detail">
             <img src={room} />
             <h2>{property.bedrooms} bedrooms</h2>
           </div>
         </div>
-        {/* <h2>Vacant from: {property.availableDate.split("T")[0]} </h2> */}
         <div className="companyDetails" >
-        <h3>Owner: {property.owner.companyName}</h3>
-        <Link to={`/property/${property._id}`}>View details</Link>
+        <h3>{property.owner.companyName}</h3>
+        {token && (
+        <Link to={`/property/${property._id}`}>View details</Link>)}
         </div>
         
         

@@ -9,6 +9,11 @@ import demand from "../assets/demand.png"
 
 
 function Intro() {
+
+
+
+
+  
     return (  
         <div  className="introContainer">
           <h1>Maximize Your Property Exposure!</h1>

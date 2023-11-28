@@ -60,7 +60,11 @@ const loginUser = async (req, res) => {
       } else {
         // Generate and send token on successful login
         const token = jwt.sign(
-          { type:existingUser.type, userName: existingUser.userName, id: existingUser._id },
+          {
+            type: existingUser.type,
+            userName: existingUser.userName,
+            id: existingUser._id,
+          },
           process.env.PRIVATE_KEY,
           { expiresIn: "3h" }
         );
@@ -153,7 +157,15 @@ const loginAgent = async (req, res) => {
       } else {
         // Generate and send token on successful login
         const token = jwt.sign(
-          { type:existingAgent.type,companyName: existingAgent.companyName, id: existingAgent._id },
+          {
+            type: existingAgent.type,
+            companyName: existingAgent.companyName,
+            id: existingAgent._id,
+            contactPerson: existingAgent.contactPerson,
+            email: existingAgent.email,
+            phoneNumber: existingAgent.phoneNumber,
+            agencyDescription: existingAgent.agencyDescription,
+          },
           process.env.PRIVATE_KEY,
           { expiresIn: "3h" }
         );

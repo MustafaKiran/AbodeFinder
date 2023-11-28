@@ -1,16 +1,40 @@
+.homeBar{
+    
+    font-family: 'Montserrat Alternates', sans-serif;
+    background-image: radial-gradient(circle, #cae8f2, #2ec4f1);   
+}
+
+.homeHeader{
+    background-image: radial-gradient(circle, #ffa41b, #fa7007);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 20px 0 10px;
+}
+
 .sliderContainer{
+    
     display: grid;
     margin: auto;
     position: relative;
-    height: 250px;
-    width: 30%;
+    height: 300px;
+    width: 50%;
     overflow: hidden;
     place-items: center;
+    padding: 10px;
+    background-image: radial-gradient(circle, #ffffff, #dcdcdc); 
+    box-shadow: 0px 0px 15px 3px inset rgba(0, 0, 0,.7);
+    border-radius: 24px;
+    margin-top:10px;
+    margin-bottom: 10px ;
 }
-
+.sliderContainer a{
+    text-decoration: none;
+}
 .slideBand {
     display: flex;
-    width: calc(250px * 4);
+    width: calc(450px * 8);
     animation: scroll 40s linear infinite;
 }
 .slideBand:hover{
@@ -21,44 +45,40 @@
         transform: translateX(0) ;
     }
     100%{
-        transform: translateX(calc(-250px*2));
+        transform: translateX(calc(-250px*3));
     }
 }
 
 .sliderEach{
-    height: 200px;
-    width: 250px;
+    height: 250px;
+    width: 350px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+    margin: 5px;
+    border-radius: 16px;
+    overflow: hidden;
     display: flex;
-    align-items: center;
-    padding: 15px;
+    flex-direction: column;
+    /* align-items:space-between ; */
+    justify-content: space-between;
+    padding: 20px;
     perspective: 100px;
 }
 
 
 .sliderEach img{
     width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+    /* overflow: hidden; */
+    /* height:max-content; */
     transition: 1s;
 }
 .sliderEach img:hover{
     transform: translateZ(20px);
 }
 
-/* .sliderContainer::before,
-.sliderContainer::after{
-    background-image: linear-gradient(to right, white 0%,black 100%);
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 15%;
-    z-index: 2;
+.subSlide{
+    display: flex;
+    justify-content: space-around;
+    color: #fa7007;
 }
-
-.sliderContainer::before{
-    left: 0;
-    top:0;
-}
-.sliderContainer::after{
-    left: 0;
-    top:0;
-    transform: rotateZ(180deg);
-} */

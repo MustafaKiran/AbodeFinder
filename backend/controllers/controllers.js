@@ -14,11 +14,11 @@ const getAllProperties = async (req, res) => {
 
 const getPropertyById = async (req, res) => {
   try {
-    // populate the company name 
-    const property = await Property.findById(req.params.id).populate(
-      "owner",
-      "companyName"
-    );
+    // populate the company name
+    const property = await Property.findById(req.params.id).populate({
+      path: "owner",
+      select: "companyName contactPerson email phoneNumber agencyDescription",
+    });
     if (!property) {
       return res.status(404).send({ error: "Property not found." });
     }
