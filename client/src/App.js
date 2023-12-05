@@ -16,7 +16,7 @@ function App() {
   const token = localStorage.getItem("token");
   async function getAllProperties() {
     try {
-      const res = await axios.get("http://localhost:8000");
+      const res = await axios.get("https://abode-finder-api.onrender.com");
       setProperties(res.data);
     } catch (error) {
       console.log("Error fetching properties:", error);
@@ -31,7 +31,7 @@ function App() {
     const alertDeleteProperty = window.confirm("Sure?");
     if (alertDeleteProperty) {
       try {
-        await axios.delete(`http://localhost:8000/${id}`);
+        await axios.delete(`https://abode-finder-api.onrender.com/${id}`);
         getAllProperties();
       } catch (error) {
         console.error("Error deleting the property", error);

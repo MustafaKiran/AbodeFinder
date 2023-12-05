@@ -42,7 +42,7 @@ function UserRegister() {
       setIsLoading(true);
 
       let res = await axios.post(
-        "http://localhost:8000/register-user",
+        "https://abode-finder-api.onrender.com/register-user",
         newUser
       );
       navigate("/user-login")

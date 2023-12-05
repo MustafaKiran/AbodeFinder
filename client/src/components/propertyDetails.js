@@ -14,7 +14,7 @@ function PropertyDetails(property) {
   useEffect(() => {
     async function getProperty() {
       try {
-        const res = await axios.get(`http://localhost:8000/${id}`);
+        const res = await axios.get(`https://abode-finder-api.onrender.com/${id}`);
         setDetails(res.data);
         
       } catch (error) {

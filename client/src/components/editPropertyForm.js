@@ -39,7 +39,7 @@ function EditProperty({ property, getAllProperties, setEditing }) {
         return;
       }
 
-      await axios.put(`http://localhost:8000/${property._id}`, {
+      await axios.put(`https://abode-finder-api.onrender.com/${property._id}`, {
         title: trimmedTitle,
         address:trimmedAddress,
         rentAmount: trimmedRentAmount,

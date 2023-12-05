@@ -66,7 +66,7 @@ const NewPropertyForm = ({ getAllProperties }) => {
 
       const propertyWithFile = { ...newProperty, photoURL: fileURL };
 
-      await axios.post("http://localhost:8000/create", propertyWithFile, {
+      await axios.post("https://abode-finder-api.onrender.com/create", propertyWithFile, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

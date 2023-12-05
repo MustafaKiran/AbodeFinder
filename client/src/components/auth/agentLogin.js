@@ -18,7 +18,7 @@ function AgentLogin() {
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/login-agent", {
+      const res = await axios.post("https://abode-finder-api.onrender.com/login-agent", {
         companyName,
         password,
       });

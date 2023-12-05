@@ -46,7 +46,7 @@ function AgentRegister() {
       setIsLoading(true);
 
       let res = await axios.post(
-        "http://localhost:8000/register-agent",
+        "https://abode-finder-api.onrender.com/register-agent",
         newAgent
       );
       navigate("/agent-login");
