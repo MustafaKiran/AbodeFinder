@@ -1,16 +1,20 @@
 .homeBar{
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Montserrat Alternates', sans-serif;
-    background-image: radial-gradient(circle, #cae8f2, #2ec4f1);   
+    background-image: linear-gradient( to top,#8ecde1, #2ec4f1);   
 }
 
 .homeHeader{
+    margin-top: 15px;
     background-image: radial-gradient(circle, #ffa41b, #fa7007);
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    width: 50%;
     padding: 20px 0 10px;
+    border-radius: 24px;
 }
 
 .sliderContainer{
@@ -81,4 +85,5 @@
     display: flex;
     justify-content: space-around;
     color: #fa7007;
+    
 }

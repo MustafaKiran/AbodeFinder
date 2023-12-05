@@ -1,6 +1,7 @@
 import AgencyCard from "./agencyCard";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { Link,  } from "react-router-dom";
 const AgencyGrid = ({ properties, getAllProperties, deleteProperty }) => {
   const [ownerIds, setOwnerIds] = useState([]);
 
@@ -22,20 +23,28 @@ const AgencyGrid = ({ properties, getAllProperties, deleteProperty }) => {
 
   return (
     <div className="propertyGrid">
-      <div >
-        <h1>{decoded.companyName} Dashboard </h1>
+      <div>
+        <h1>{decoded?.companyName} Dashboard </h1>
         <h3>Take a look at your properties</h3>
       </div>
-      {properties
-        .filter((p) => ownerIds.includes(p._id))
-        .map((property) => (
-          <AgencyCard
-            key={property._id}
-            property={property}
-            getAllProperties={getAllProperties}
-            deleteProperty={deleteProperty}
-          />
-        ))}
+      {ownerIds.length === 0 ? (
+        <div className="linkToAdd">
+          <Link to="/new-property-form" >
+              Add Your First Ad
+            </Link>
+        </div>
+      ) : (
+        properties
+          .filter((p) => ownerIds.includes(p._id))
+          .map((property) => (
+            <AgencyCard
+              key={property._id}
+              property={property}
+              getAllProperties={getAllProperties}
+              deleteProperty={deleteProperty}
+            />
+          ))
+      )}
     </div>
   );
 };
